@@ -17,7 +17,7 @@ html,body{
     height:100%;
     overflow:hidden;
     background:#050505;
-    color:#fff;
+    color:white;
 }
 
 body{
@@ -31,8 +31,8 @@ body{
     overflow:hidden;
 
     background:
-        radial-gradient(circle at 28% 42%,rgba(116,82,38,.18),transparent 35%),
-        radial-gradient(circle at 75% 50%,rgba(85,55,25,.10),transparent 38%),
+        radial-gradient(circle at 28% 40%,rgba(150,105,45,.18),transparent 38%),
+        radial-gradient(circle at 76% 48%,rgba(95,55,20,.12),transparent 42%),
         linear-gradient(135deg,#050505 0%,#0b0b0b 45%,#020202 100%);
 }
 
@@ -42,38 +42,39 @@ body{
     inset:0;
     pointer-events:none;
     background:
-        linear-gradient(90deg,transparent 0%,rgba(210,172,96,.04) 48%,transparent 100%);
+        linear-gradient(90deg,transparent 0%,rgba(220,178,95,.035) 48%,transparent 100%);
 }
 
 /* HEADER */
 
 .header{
     position:absolute;
-    top:4.5vh;
+    top:4vh;
     left:5vw;
     right:5vw;
     display:flex;
     align-items:center;
     justify-content:space-between;
-}
-
-.logo{
-    display:flex;
-    flex-direction:column;
+    z-index:2;
 }
 
 .logo-main{
     font-family:Georgia,"Times New Roman",serif;
     font-size:2.15vw;
     letter-spacing:.34vw;
-    color:#fff;
 }
 
 .logo-sub{
-    margin-top:.5vh;
+    margin-top:.55vh;
     font-size:.72vw;
     letter-spacing:.34vw;
-    color:#d2ab63;
+    color:#d3aa61;
+}
+
+.company{
+    font-size:.72vw;
+    letter-spacing:.25vw;
+    color:#777;
 }
 
 .header-line{
@@ -82,46 +83,64 @@ body{
     right:5vw;
     top:11vh;
     height:1px;
-    background:linear-gradient(90deg,#b88a40,rgba(184,138,64,.15),transparent);
+    background:linear-gradient(90deg,#b8863f,rgba(184,134,63,.14),transparent);
 }
 
-/* MAIN LEFT */
+
+/* MAIN */
 
 .main-left{
     position:absolute;
     left:5vw;
     top:17vh;
-    width:57vw;
+    width:55vw;
+}
+
+.live-row{
+    display:flex;
+    align-items:center;
+    gap:1vw;
+    margin-bottom:1.8vh;
+}
+
+.live-badge{
+    background:#c40000;
+    color:white;
+    font-weight:bold;
+    font-size:.82vw;
+    letter-spacing:.18vw;
+    padding:.55vh .75vw;
+    border-radius:2px;
+    box-shadow:0 0 18px rgba(196,0,0,.18);
 }
 
 .kicker{
-    font-size:.88vw;
-    letter-spacing:.34vw;
-    color:#d2ab63;
-    margin-bottom:1.6vh;
+    font-size:.86vw;
+    letter-spacing:.32vw;
+    color:#d3aa61;
 }
 
 .title{
     font-family:Georgia,"Times New Roman",serif;
-    font-size:4.65vw;
+    font-size:4.55vw;
     line-height:.98;
-    letter-spacing:.04vw;
     font-weight:normal;
+    letter-spacing:.02vw;
 }
 
 .subtitle{
-    margin-top:2.2vh;
-    font-size:1.18vw;
+    margin-top:2vh;
+    font-size:1.16vw;
     letter-spacing:.30vw;
-    color:#cfcfcf;
+    color:#ccc;
 }
 
-.timer-wrap{
-    margin-top:1.2vh;
-}
+
+/* TIMER */
 
 #countdown{
-    font-size:13.8vw;
+    margin-top:.7vh;
+    font-size:13.3vw;
     line-height:.88;
     font-weight:200;
     letter-spacing:-.45vw;
@@ -130,141 +149,168 @@ body{
 }
 
 .next{
-    margin-top:1.5vh;
-    font-size:.86vw;
-    letter-spacing:.30vw;
-    color:#d2ab63;
+    margin-top:1.3vh;
+    font-size:.84vw;
+    letter-spacing:.28vw;
+    color:#d3aa61;
 }
 
 #message{
-    margin-top:1vh;
-    font-size:1.15vw;
+    margin-top:.9vh;
+    font-size:1.12vw;
     line-height:1.45;
-    color:#dcdcdc;
-    max-width:48vw;
+    color:#d8d8d8;
 }
 
-/* AVATAR AREA */
+
+/* VIDEO */
 
 .avatar-zone{
     position:absolute;
     right:4.5vw;
-    top:17vh;
+    top:16vh;
     width:31vw;
-    height:68vh;
+    height:69vh;
 }
 
-.avatar-frame{
+.avatar-shell{
     position:absolute;
     inset:0;
-    border:1px solid rgba(210,171,99,.35);
-    background:
-        radial-gradient(circle at 50% 35%,rgba(210,171,99,.10),transparent 46%),
-        linear-gradient(180deg,#111 0%,#080808 100%);
+    overflow:hidden;
+
+    background:#090909;
+
+    border:1px solid rgba(211,170,97,.28);
+
+    box-shadow:
+        0 0 40px rgba(0,0,0,.45),
+        inset 0 0 40px rgba(211,170,97,.025);
+}
+
+.avatar-shell:before{
+    content:"";
+    position:absolute;
+    inset:10px;
+    border:1px solid rgba(255,255,255,.035);
+    pointer-events:none;
+    z-index:3;
+}
+
+.video-wrap{
+    position:absolute;
+    inset:0;
     overflow:hidden;
 }
 
-.avatar-frame:before{
-    content:"";
+/* YouTube iframe */
+#player{
     position:absolute;
-    inset:12px;
-    border:1px solid rgba(255,255,255,.035);
-    pointer-events:none;
+    top:50%;
+    left:50%;
+    width:122%;
+    height:122%;
+    transform:translate(-50%,-50%);
+    border:0;
 }
 
-.avatar-placeholder{
+/* overlay per primo avvio audio */
+.start-overlay{
     position:absolute;
     inset:0;
+    z-index:10;
+
     display:flex;
+    align-items:center;
+    justify-content:center;
     flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:#8f8f8f;
+
+    background:
+        linear-gradient(180deg,rgba(5,5,5,.92),rgba(5,5,5,.80));
+
+    cursor:pointer;
 }
 
-.avatar-placeholder .circle{
-    width:7vw;
-    height:7vw;
-    border-radius:50%;
-    border:1px solid rgba(210,171,99,.50);
-    margin-bottom:2.2vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:2.5vw;
-    color:#d2ab63;
-}
-
-.avatar-placeholder .small{
-    font-size:.75vw;
-    letter-spacing:.25vw;
-    color:#c7a25e;
-}
-
-.avatar-placeholder .text{
-    margin-top:1vh;
-    font-size:1vw;
-    line-height:1.5;
-    color:#9a9a9a;
-}
-
-/* VIDEO AVATAR - ready for later */
-
-#avatarVideo{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.start-overlay.hidden{
     display:none;
 }
 
-/* BOTTOM */
+.start-live{
+    background:#c40000;
+    color:#fff;
+    font-weight:bold;
+    font-size:1vw;
+    letter-spacing:.18vw;
+    padding:1.3vh 1.4vw;
+    border:none;
+    border-radius:3px;
+}
 
-.bottom{
+.start-note{
+    margin-top:1.4vh;
+    font-size:.78vw;
+    letter-spacing:.10vw;
+    color:#aaa;
+}
+
+
+/* FOOTER */
+
+.footer{
     position:absolute;
     left:5vw;
     right:5vw;
-    bottom:3.7vh;
+    bottom:3.5vh;
+
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    color:#777;
-    font-size:.70vw;
+    align-items:center;
+
+    font-size:.68vw;
     letter-spacing:.24vw;
+    color:#707070;
 }
 
-.bottom-line{
+.footer-line{
     position:absolute;
     left:0;
     right:0;
     top:-2vh;
     height:1px;
-    background:linear-gradient(90deg,rgba(210,171,99,.55),rgba(210,171,99,.12),transparent);
+    background:linear-gradient(90deg,rgba(211,170,97,.5),rgba(211,170,97,.1),transparent);
 }
+
 
 /* LAST 30 SECONDS */
 
 .starting #countdown{
-    color:#e3bd6d;
-    text-shadow:0 0 30px rgba(227,189,109,.18);
+    color:#e5bd6d;
+    text-shadow:0 0 34px rgba(229,189,109,.20);
 }
 
 .starting #message{
     color:#fff;
-    font-size:1.4vw;
+    font-size:1.35vw;
     font-weight:bold;
-    letter-spacing:.03vw;
 }
 
-/* RESPONSIVE */
-
 @media(max-height:720px){
-    .main-left{top:15vh}
-    .avatar-zone{top:15vh;height:70vh}
-    #countdown{font-size:12.5vw}
-    .title{font-size:4.3vw}
+
+    .main-left{
+        top:15vh;
+    }
+
+    .avatar-zone{
+        top:15vh;
+        height:70vh;
+    }
+
+    #countdown{
+        font-size:12.2vw;
+    }
+
+    .title{
+        font-size:4.25vw;
+    }
 }
 </style>
 </head>
@@ -274,18 +320,16 @@ body{
 <div class="page" id="page">
 
     <div class="header">
-        <div class="logo">
+
+        <div>
             <div class="logo-main">MURANO</div>
             <div class="logo-sub">LIVE GLASS EXPERIENCE</div>
         </div>
 
-        <div style="
-        font-size:.72vw;
-        letter-spacing:.25vw;
-        color:#8c8c8c;
-        ">
-        LINEA MURANO ART
+        <div class="company">
+            LINEA MURANO ART
         </div>
+
     </div>
 
     <div class="header-line"></div>
@@ -293,8 +337,16 @@ body{
 
     <section class="main-left">
 
-        <div class="kicker">
-            LIVE IN MURANO
+        <div class="live-row">
+
+            <div class="live-badge">
+                LIVE
+            </div>
+
+            <div class="kicker">
+                LIVE IN MURANO
+            </div>
+
         </div>
 
         <h1 class="title">
@@ -306,8 +358,8 @@ body{
             EVERY 15 MINUTES
         </div>
 
-        <div class="timer-wrap">
-            <div id="countdown">15:00</div>
+        <div id="countdown">
+            15:00
         </div>
 
         <div class="next">
@@ -323,26 +375,22 @@ body{
 
     <aside class="avatar-zone">
 
-        <div class="avatar-frame">
+        <div class="avatar-shell">
 
-            <video id="avatarVideo"
-                   autoplay
-                   muted
-                   playsinline
-                   loop>
-            </video>
+            <div class="video-wrap">
 
-            <div class="avatar-placeholder" id="avatarPlaceholder">
+                <div id="player"></div>
 
-                <div class="circle">M</div>
+            </div>
 
-                <div class="small">
-                    MURANO LIVE GUIDE
-                </div>
+            <div class="start-overlay" id="startOverlay">
 
-                <div class="text">
-                    Avatar presentation<br>
-                    will appear here
+                <button class="start-live">
+                    START LIVE EXPERIENCE
+                </button>
+
+                <div class="start-note">
+                    Tap once to enable audio
                 </div>
 
             </div>
@@ -352,9 +400,9 @@ body{
     </aside>
 
 
-    <footer class="bottom">
+    <footer class="footer">
 
-        <div class="bottom-line"></div>
+        <div class="footer-line"></div>
 
         <div>
             THE ART OF MURANO GLASS • LIVE
@@ -369,12 +417,84 @@ body{
 </div>
 
 
+<script src="https://www.youtube.com/iframe_api"></script>
+
 <script>
+
+let player;
+
+function onYouTubeIframeAPIReady(){
+
+    player = new YT.Player('player',{
+
+        videoId:'fnaTZhE2lyo',
+
+        playerVars:{
+            autoplay:0,
+            controls:0,
+            rel:0,
+            modestbranding:1,
+            playsinline:1,
+            disablekb:1,
+            fs:0,
+            loop:1,
+            playlist:'fnaTZhE2lyo'
+        },
+
+        events:{
+            onReady:function(){
+
+                /* pronto, attende il primo click */
+
+            },
+
+            onStateChange:function(event){
+
+                if(event.data === YT.PlayerState.ENDED){
+
+                    player.seekTo(0);
+                    player.playVideo();
+
+                }
+
+            }
+        }
+
+    });
+
+}
+
+
+/* primo click per abilitare audio */
+
+document.getElementById("startOverlay").addEventListener("click",function(){
+
+    if(player){
+
+        player.unMute();
+        player.setVolume(100);
+        player.playVideo();
+
+        document.getElementById("startOverlay").classList.add("hidden");
+
+    }
+
+});
+
+
+/* COUNTDOWN */
+
 (function(){
 
-    const page = document.getElementById("page");
-    const countdown = document.getElementById("countdown");
-    const message = document.getElementById("message");
+    const page =
+        document.getElementById("page");
+
+    const countdown =
+        document.getElementById("countdown");
+
+    const message =
+        document.getElementById("message");
+
 
     function updateCountdown(){
 
@@ -410,21 +530,26 @@ body{
             remaining = 900;
         }
 
-        const mins = Math.floor(remaining / 60);
-        const secs = remaining % 60;
+        const mins =
+            Math.floor(remaining / 60);
+
+        const secs =
+            remaining % 60;
 
         countdown.textContent =
-            String(mins).padStart(2,"0") +
-            ":" +
-            String(secs).padStart(2,"0");
+            String(mins).padStart(2,"0")
+            + ":"
+            + String(secs).padStart(2,"0");
+
 
         if(remaining <= 30){
 
             page.classList.add("starting");
 
             message.innerHTML =
-                "THE DEMONSTRATION IS ABOUT TO BEGIN<br>" +
-                "ACCESS TO THE FURNACE IS NOW PERMITTED";
+                "THE DEMONSTRATION IS ABOUT TO BEGIN"
+                + "<br>"
+                + "ACCESS TO THE FURNACE IS NOW PERMITTED";
 
         }
         else{
@@ -434,12 +559,15 @@ body{
             message.innerHTML =
                 "Discover the art of Murano glass, live in our furnace.";
         }
+
     }
 
     updateCountdown();
+
     setInterval(updateCountdown,250);
 
 })();
+
 </script>
 
 </body>
