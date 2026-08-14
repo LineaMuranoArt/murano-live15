@@ -1,1179 +1,1700 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Linea Murano Art - Live Glass</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
-
 <style>
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html,body{
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  background:#020304;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#020304;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#fff;
 }
 
 .page{
-  width:100vw;
-  height:100vh;
-  position:relative;
-  overflow:hidden;
+    width:100vw;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
 
-  background:
-    radial-gradient(circle at 22% 42%,rgba(40,60,70,.10),transparent 34%),
-    radial-gradient(circle at 76% 50%,rgba(255,35,20,.045),transparent 38%),
-    linear-gradient(135deg,#020304,#080a0c 48%,#010101);
+    background:
+        radial-gradient(circle at 22% 42%,
+        rgba(60,70,80,.10),
+        transparent 34%),
+
+        radial-gradient(circle at 76% 50%,
+        rgba(255,35,20,.045),
+        transparent 38%),
+
+        linear-gradient(
+        135deg,
+        #020304,
+        #080a0c 48%,
+        #010101
+        );
 }
 
 
-/* =========================
+/* =====================================
    LOGO
-========================= */
+===================================== */
 
 .logo{
-  position:absolute;
-  left:3.1vw;
-  top:3.2vh;
-  z-index:10;
+    position:absolute;
+    left:3.1vw;
+    top:3.2vh;
+    z-index:10;
 }
 
 .logo-linea{
-  font-size:2.65vw;
-  line-height:.9;
-  font-weight:300;
-  letter-spacing:.45vw;
+    font-size:2.65vw;
+    line-height:.9;
+    font-weight:300;
+    letter-spacing:.45vw;
 
-  background:linear-gradient(
-    180deg,
-    #fff 0%,
-    #eee 35%,
-    #777 60%,
-    #fafafa 100%
-  );
+    background:
+        linear-gradient(
+        180deg,
+        #fff 0%,
+        #eee 35%,
+        #777 60%,
+        #fafafa 100%
+        );
 
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .logo-sub{
-  margin-top:.75vh;
-  margin-left:.2vw;
+    margin-top:.75vh;
+    margin-left:.2vw;
 
-  font-size:.67vw;
-  letter-spacing:.43vw;
+    font-size:.67vw;
+    letter-spacing:.43vw;
 
-  color:#aaa;
+    color:#aaa;
 }
 
 
-/* =========================
-   LEFT
-========================= */
+/* =====================================
+   COLONNA SINISTRA
+===================================== */
 
 .left{
-  position:absolute;
-  left:3vw;
-  top:16vh;
+    position:absolute;
+    left:3vw;
+    top:16vh;
 
-  width:39vw;
+    width:39vw;
 }
 
 
-/* =========================
+/* =====================================
    LIVE
-========================= */
+===================================== */
 
 .live-pill{
-  display:inline-flex;
-  align-items:center;
 
-  gap:1.15vw;
+    display:inline-flex;
+    align-items:center;
 
-  padding:
-    1.35vh
-    2.1vw
-    1.35vh
-    1.35vw;
+    gap:1.15vw;
 
-  border-radius:999px;
+    padding:
+        1.35vh
+        2.1vw
+        1.35vh
+        1.35vw;
 
-  border:2px solid #ff342c;
+    border-radius:999px;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(225,20,15,.94),
-      rgba(110,0,0,.96)
-    );
+    border:
+        2px solid
+        #ff342c;
 
-  box-shadow:
-    0 0 15px rgba(255,25,15,.55),
-    0 0 35px rgba(255,25,15,.20),
-    inset 0 1px 2px rgba(255,255,255,.32);
+    background:
+        linear-gradient(
+        180deg,
+        rgba(225,20,15,.90),
+        rgba(115,0,0,.94)
+        );
+
+    box-shadow:
+        0 0 15px rgba(255,25,15,.55),
+        0 0 35px rgba(255,25,15,.20),
+        inset 0 1px 2px rgba(255,255,255,.32);
 }
+
 
 .live-dot{
-  width:2.4vw;
-  height:2.4vw;
 
-  min-width:22px;
-  min-height:22px;
+    width:2.4vw;
+    height:2.4vw;
 
-  border-radius:50%;
+    min-width:22px;
+    min-height:22px;
 
-  background:#fff;
+    border-radius:50%;
 
-  box-shadow:
-    0 0 8px #fff,
-    0 0 18px #ff4b42,
-    0 0 30px #ff2118;
+    background:#fff;
 
-  animation:pulse 1.5s infinite;
+    box-shadow:
+        0 0 8px #fff,
+        0 0 18px #ff4b42,
+        0 0 30px #ff2118;
+
+    animation:
+        pulse
+        1.5s
+        infinite;
 }
+
 
 @keyframes pulse{
 
-  0%,100%{
-    opacity:1;
-    transform:scale(1);
-  }
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
 
-  50%{
-    opacity:.72;
-    transform:scale(.88);
-  }
+    50%{
+        opacity:.75;
+        transform:scale(.88);
+    }
 }
+
 
 .live-text{
-  font-size:2.8vw;
-  font-weight:600;
 
-  letter-spacing:.10vw;
+    font-size:2.8vw;
+    font-weight:600;
 
-  background:
-    linear-gradient(
-      180deg,
-      #fff,
-      #e5e5e5 45%,
-      #999 72%,
-      #fff
-    );
+    letter-spacing:.10vw;
 
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+    background:
+        linear-gradient(
+        180deg,
+        #fff,
+        #e6e6e6 45%,
+        #aaa 70%,
+        #fff
+        );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 
-/* =========================
-   TITLE
-========================= */
+/* =====================================
+   TITOLO
+===================================== */
 
 .title{
-  margin-top:3.2vh;
 
-  font-family:
-    "Orbitron",
-    Arial,
-    sans-serif;
+    margin-top:3.2vh;
 
-  font-size:2.55vw;
+    font-size:3.05vw;
+    line-height:1.08;
 
-  line-height:1.25;
+    font-weight:600;
 
-  letter-spacing:.01vw;
+    letter-spacing:.02vw;
 
-  font-weight:700;
+    background:
+        linear-gradient(
+        180deg,
+        #fff 0%,
+        #dedede 38%,
+        #777 63%,
+        #eee 100%
+        );
 
-  background:
-    linear-gradient(
-      180deg,
-      #fff 0%,
-      #ddd 36%,
-      #777 60%,
-      #eee 100%
-    );
-
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-
-/* =========================
-   EVERY 15
-========================= */
 
 .every-row{
-  margin-top:2.2vh;
 
-  display:flex;
-  align-items:center;
+    margin-top:2.3vh;
 
-  gap:1.2vw;
+    display:flex;
+    align-items:center;
+
+    gap:1.2vw;
 }
+
 
 .blue-line{
-  width:6.5vw;
-  height:2px;
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #00a8ff
-    );
+    width:6.5vw;
+    height:2px;
+
+    background:
+        linear-gradient(
+        90deg,
+        transparent,
+        #00a8ff
+        );
+
+    box-shadow:
+        0 0 6px
+        rgba(0,168,255,.45);
 }
+
 
 .red-line{
-  width:6.5vw;
-  height:2px;
 
-  background:
-    linear-gradient(
-      90deg,
-      #ff2118,
-      transparent
-    );
+    width:6.5vw;
+    height:2px;
+
+    background:
+        linear-gradient(
+        90deg,
+        #ff2118,
+        transparent
+        );
+
+    box-shadow:
+        0 0 6px
+        rgba(255,33,24,.45);
 }
+
 
 .every{
-  white-space:nowrap;
 
-  font-size:1.08vw;
-  letter-spacing:.35vw;
+    white-space:nowrap;
 
-  color:#ddd;
+    font-size:1.1vw;
+
+    letter-spacing:.35vw;
+
+    color:#ddd;
 }
 
 
-/* =========================
-   TIMER PANEL
-========================= */
+/* =====================================
+   PANNELLO COUNTDOWN
+===================================== */
 
 .timer-panel{
-  position:relative;
 
-  margin-top:2.3vh;
+    position:relative;
 
-  width:37vw;
-  height:19vh;
+    margin-top:2.3vh;
 
-  min-height:145px;
+    width:37vw;
+    height:19vh;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    min-height:150px;
 
-  clip-path:
-    polygon(
-      7% 0,
-      94% 0,
-      100% 18%,
-      100% 82%,
-      94% 100%,
-      7% 100%,
-      0 82%,
-      0 18%
-    );
+    display:flex;
 
-  background:
-    linear-gradient(
-      110deg,
-      #050709 0%,
-      #15191d 48%,
-      #050506 100%
-    );
+    align-items:center;
+    justify-content:center;
 
-  border:1px solid #555;
+    overflow:hidden;
 
-  box-shadow:
-    inset 0 0 30px rgba(255,255,255,.035),
-    0 0 25px rgba(0,0,0,.8);
+    clip-path:
+        polygon(
+        7% 0,
+        94% 0,
+        100% 18%,
+        100% 82%,
+        94% 100%,
+        7% 100%,
+        0 82%,
+        0 18%
+        );
+
+    background:
+        linear-gradient(
+        110deg,
+        #050709 0%,
+        #15191d 48%,
+        #050506 100%
+        );
+
+    border:
+        1px solid
+        #555;
+
+    box-shadow:
+        inset 0 0 35px rgba(255,255,255,.035),
+        0 0 25px rgba(0,0,0,.8);
 }
+
 
 .timer-panel:before{
-  content:"";
 
-  position:absolute;
-  inset:0;
+    content:"";
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0,170,255,.55),
-      transparent 22%,
-      transparent 78%,
-      rgba(255,30,20,.55)
-    );
+    position:absolute;
 
-  opacity:.35;
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+        90deg,
+        rgba(0,170,255,.70),
+        transparent 20%,
+        transparent 80%,
+        rgba(255,30,20,.70)
+        );
+
+    opacity:.27;
 }
 
 
-/* =========================
-   COUNTDOWN MODERNO
-========================= */
+/* =====================================
+   DISPLAY DIGITALE
+===================================== */
 
-#countdown{
+.digital-display{
 
-  position:relative;
+    position:relative;
+    z-index:3;
 
-  z-index:2;
+    display:flex;
 
-  font-family:
-    "Orbitron",
-    Arial,
-    sans-serif;
+    align-items:center;
+    justify-content:center;
 
-  font-size:7.25vw;
+    gap:.55vw;
 
-  line-height:1;
-
-  font-weight:700;
-
-  letter-spacing:-.38vw;
-
-  font-variant-numeric:
-    tabular-nums;
-
-  background:
-    linear-gradient(
-      180deg,
-      #ffffff 0%,
-      #f4f4f4 22%,
-      #a4a4a4 48%,
-      #5f6265 60%,
-      #d8d8d8 82%,
-      #ffffff 100%
-    );
-
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-
-  filter:
-    drop-shadow(0 2px 0 #000)
-    drop-shadow(0 0 4px rgba(255,255,255,.18));
+    width:100%;
 }
 
 
-/* COLON ROSSO */
+/* singolo numero */
 
-.timer-colon{
-  color:#ff2118;
+.digit{
+
+    position:relative;
+
+    width:5.2vw;
+    height:10.3vw;
+
+    max-height:15vh;
+
+    min-width:48px;
+    min-height:92px;
 }
 
 
-/* =========================
+/* segmento */
+
+.segment{
+
+    position:absolute;
+
+    opacity:.065;
+
+    background:#333;
+
+    transition:
+        opacity .08s linear;
+}
+
+
+/* segmento attivo */
+
+.segment.on{
+
+    opacity:1;
+
+    background:
+        linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #eeeeee 18%,
+        #9c9c9c 48%,
+        #f6f6f6 76%,
+        #777 100%
+        );
+
+    box-shadow:
+        inset 0 0 3px rgba(255,255,255,.8),
+        inset 0 -2px 4px rgba(0,0,0,.7),
+        0 2px 3px rgba(0,0,0,.8);
+
+}
+
+
+/* A alto */
+
+.seg-a{
+
+    top:0;
+    left:17%;
+
+    width:66%;
+    height:11%;
+
+    clip-path:
+        polygon(
+        8% 0,
+        92% 0,
+        100% 50%,
+        92% 100%,
+        8% 100%,
+        0 50%
+        );
+}
+
+
+/* B destra alto */
+
+.seg-b{
+
+    right:0;
+    top:7%;
+
+    width:17%;
+    height:41%;
+
+    clip-path:
+        polygon(
+        50% 0,
+        100% 10%,
+        100% 90%,
+        50% 100%,
+        0 90%,
+        0 10%
+        );
+}
+
+
+/* C destra basso */
+
+.seg-c{
+
+    right:0;
+    bottom:7%;
+
+    width:17%;
+    height:41%;
+
+    clip-path:
+        polygon(
+        50% 0,
+        100% 10%,
+        100% 90%,
+        50% 100%,
+        0 90%,
+        0 10%
+        );
+}
+
+
+/* D basso */
+
+.seg-d{
+
+    bottom:0;
+    left:17%;
+
+    width:66%;
+    height:11%;
+
+    clip-path:
+        polygon(
+        8% 0,
+        92% 0,
+        100% 50%,
+        92% 100%,
+        8% 100%,
+        0 50%
+        );
+}
+
+
+/* E sinistra basso */
+
+.seg-e{
+
+    left:0;
+    bottom:7%;
+
+    width:17%;
+    height:41%;
+
+    clip-path:
+        polygon(
+        50% 0,
+        100% 10%,
+        100% 90%,
+        50% 100%,
+        0 90%,
+        0 10%
+        );
+}
+
+
+/* F sinistra alto */
+
+.seg-f{
+
+    left:0;
+    top:7%;
+
+    width:17%;
+    height:41%;
+
+    clip-path:
+        polygon(
+        50% 0,
+        100% 10%,
+        100% 90%,
+        50% 100%,
+        0 90%,
+        0 10%
+        );
+}
+
+
+/* G centro */
+
+.seg-g{
+
+    top:44.5%;
+    left:17%;
+
+    width:66%;
+    height:11%;
+
+    clip-path:
+        polygon(
+        8% 0,
+        92% 0,
+        100% 50%,
+        92% 100%,
+        8% 100%,
+        0 50%
+        );
+}
+
+
+/* =====================================
+   DUE PUNTI ROSSI
+===================================== */
+
+.colon{
+
+    width:2.1vw;
+    height:8vw;
+
+    min-width:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:1.4vw;
+}
+
+
+.colon-dot{
+
+    width:1.05vw;
+    height:1.05vw;
+
+    min-width:10px;
+    min-height:10px;
+
+    border-radius:25%;
+
+    background:#ff2018;
+
+    box-shadow:
+        0 0 5px #ff2018,
+        0 0 12px rgba(255,32,24,.70);
+}
+
+
+/* =====================================
    NEXT
-========================= */
+===================================== */
 
 .next{
-  margin-top:2vh;
 
-  text-align:center;
+    margin-top:2vh;
 
-  font-size:1.02vw;
-  letter-spacing:.34vw;
+    text-align:center;
 
-  color:#ff3027;
+    font-size:1.02vw;
+
+    letter-spacing:.34vw;
+
+    color:#ff3027;
 }
+
 
 .next-line{
-  width:30vw;
 
-  height:1px;
+    width:30vw;
+    max-width:90%;
 
-  margin:.8vh auto 0;
+    height:1px;
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #555,
-      #ff3027,
-      #555,
-      transparent
-    );
+    margin:
+        .8vh auto 0;
+
+    background:
+        linear-gradient(
+        90deg,
+        transparent,
+        #555,
+        #ff3027,
+        #555,
+        transparent
+        );
 }
+
 
 .next-dot{
-  width:9px;
-  height:9px;
 
-  margin:-5px auto 0;
+    width:9px;
+    height:9px;
 
-  border-radius:50%;
+    margin:
+        -5px auto 0;
 
-  background:#ff3027;
+    border-radius:50%;
 
-  box-shadow:
-    0 0 6px #ff3027,
-    0 0 13px rgba(255,48,39,.7);
+    background:#ff3027;
+
+    box-shadow:
+        0 0 6px #ff3027,
+        0 0 13px rgba(255,48,39,.7);
 }
+
 
 #message{
-  margin-top:2vh;
 
-  padding-left:1.3vw;
+    margin-top:2.1vh;
 
-  border-left:2px solid #ff3027;
+    padding-left:1.3vw;
 
-  font-size:1.16vw;
+    border-left:
+        2px solid
+        #ff3027;
 
-  line-height:1.45;
+    font-size:1.18vw;
 
-  color:#e5e5e5;
+    line-height:1.45;
+
+    color:#e5e5e5;
 }
 
 
-/* =========================
-   AVATAR FRAME
-========================= */
+/* =====================================
+   AVATAR
+===================================== */
 
 .avatar-zone{
-  position:absolute;
 
-  right:2.8vw;
-  top:10vh;
+    position:absolute;
 
-  width:52vw;
-  height:73vh;
+    right:2.8vw;
+    top:9.5vh;
 
-  border-radius:24px;
+    width:52vw;
+    height:74vh;
 
-  overflow:hidden;
+    border-radius:24px;
 
-  background:#000;
+    overflow:hidden;
 
-  border:
-    1px solid
-    rgba(255,255,255,.14);
+    background:#000;
 
-  box-shadow:
-    -2px 0 0 #00a8ff,
-    2px 0 0 #ff2118,
-    0 0 28px rgba(0,0,0,.8);
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    box-shadow:
+        -2px 0 0 #00a8ff,
+        2px 0 0 #ff2118,
+        0 0 28px rgba(0,0,0,.8);
 }
+
 
 .avatar-zone:after{
 
-  content:"";
+    content:"";
 
-  position:absolute;
+    position:absolute;
+    inset:0;
 
-  inset:0;
+    z-index:30;
 
-  z-index:8;
+    pointer-events:none;
 
-  pointer-events:none;
+    border-radius:23px;
 
-  border-radius:23px;
-
-  box-shadow:
-    inset 2px 0 3px rgba(0,168,255,.55),
-    inset -2px 0 3px rgba(255,33,24,.55);
+    box-shadow:
+        inset 2px 0 3px rgba(0,168,255,.55),
+        inset -2px 0 3px rgba(255,33,24,.55);
 }
 
 
-/* =========================
-   YOUTUBE PLAYER
-========================= */
+/* finestra che ritaglia YouTube */
+
+.video-crop{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    background:#000;
+}
+
 
 /*
-  Video un po' più grande e più alto.
-  Non usiamo più il taglio esagerato precedente.
+  PLAYER MOLTO PIÙ GRANDE
+  E ALZATO
 */
 
 #player{
 
-  position:absolute;
+    position:absolute;
 
-  left:50%;
+    left:50%;
+    top:29%;
 
-  top:45%;
+    width:128%;
+    height:158%;
 
-  width:118%;
-  height:118%;
+    transform:
+        translate(-50%,-50%);
 
-  transform:
-    translate(
-      -50%,
-      -50%
-    );
-
-  border:0;
+    border:0;
 }
 
 
-/* =========================
+/* =====================================
    MASCHERA SOTTOTITOLI
-========================= */
+===================================== */
 
 /*
-  Questa fascia sta SOPRA il player.
-  Copre tutta la zona in cui YouTube
-  visualizza normalmente una o due
-  righe di sottotitoli.
+  La maschera copre fisicamente
+  la zona dove YouTube mette captions.
 
-  Non dipende dalle impostazioni CC
-  di YouTube.
+  L'avatar viene posizionato affinché
+  il busto arrivi praticamente
+  fino a questa maschera.
 */
 
-.caption-mask{
+.subtitle-mask{
 
-  position:absolute;
+    position:absolute;
 
-  z-index:7;
+    z-index:18;
 
-  left:0;
-  right:0;
-  bottom:0;
+    left:0;
+    right:0;
+    bottom:0;
 
-  height:14%;
+    height:17%;
 
-  pointer-events:none;
+    pointer-events:none;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,0) 0%,
-      rgba(0,0,0,.92) 25%,
-      #000 48%,
-      #000 100%
-    );
+    background:
+        linear-gradient(
+        180deg,
+        rgba(2,3,4,0) 0%,
+        rgba(2,3,4,.78) 30%,
+        rgba(2,3,4,.98) 62%,
+        #020304 100%
+        );
 }
 
 
-/* =========================
-   START AUDIO
-========================= */
+/* =====================================
+   START FALLBACK
+===================================== */
 
 #startOverlay{
 
-  position:absolute;
+    position:absolute;
 
-  inset:0;
+    inset:0;
 
-  z-index:20;
+    z-index:40;
 
-  display:flex;
+    display:none;
 
-  flex-direction:column;
+    flex-direction:column;
 
-  align-items:center;
-  justify-content:center;
+    align-items:center;
+    justify-content:center;
 
-  background:
-    rgba(0,0,0,.76);
+    background:
+        rgba(0,0,0,.73);
 
-  cursor:pointer;
+    cursor:pointer;
 }
 
-#startOverlay.hidden{
-  display:none;
+
+#startOverlay.show{
+
+    display:flex;
 }
+
 
 .start-button{
 
-  border:
-    2px solid
-    #ff3027;
+    border:
+        2px solid
+        #ff3027;
 
-  border-radius:999px;
+    border-radius:999px;
 
-  padding:
-    1.1vh
-    1.7vw;
+    padding:
+        1.1vh
+        1.7vw;
 
-  background:
-    linear-gradient(
-      180deg,
-      #d51b14,
-      #720000
-    );
+    background:
+        linear-gradient(
+        180deg,
+        #d51b14,
+        #720000
+        );
 
-  color:#fff;
+    color:#fff;
 
-  font-size:1.05vw;
-  font-weight:bold;
+    font-size:1.05vw;
 
-  letter-spacing:.12vw;
+    font-weight:bold;
 
-  box-shadow:
-    0 0 20px
-    rgba(255,30,20,.45);
+    letter-spacing:.12vw;
+
+    box-shadow:
+        0 0 20px
+        rgba(255,30,20,.45);
 }
+
 
 .start-small{
 
-  margin-top:1.2vh;
+    margin-top:1.2vh;
 
-  font-size:.72vw;
+    font-size:.72vw;
 
-  letter-spacing:.12vw;
+    letter-spacing:.12vw;
 
-  color:#aaa;
+    color:#aaa;
 }
 
 
-/* =========================
+/* =====================================
    FOOTER
-========================= */
+===================================== */
 
 .footer{
 
-  position:absolute;
+    position:absolute;
 
-  left:3vw;
-  right:3vw;
-  bottom:2.6vh;
+    left:3vw;
+    right:3vw;
 
-  border-top:
-    1px solid
-    #343434;
+    bottom:2.6vh;
 
-  padding-top:2vh;
+    border-top:
+        1px solid
+        #343434;
 
-  text-align:center;
+    padding-top:2vh;
 
-  font-size:.75vw;
+    text-align:center;
 
-  letter-spacing:.42vw;
+    font-size:.75vw;
 
-  color:#888;
+    letter-spacing:.42vw;
+
+    color:#888;
 }
+
 
 .footer-live{
-  color:#ff3027;
+
+    color:#ff3027;
 }
 
 
-/* =========================
-   LAST 30 SEC
-========================= */
+/* ultimi 30 secondi */
 
 .starting .timer-panel{
 
-  box-shadow:
-    inset 0 0 30px rgba(255,35,20,.08),
-    0 0 28px rgba(255,30,20,.20);
+    box-shadow:
+        inset 0 0 30px rgba(255,35,20,.08),
+        0 0 28px rgba(255,30,20,.20);
 }
+
 
 .starting #message{
 
-  color:#fff;
+    color:#fff;
 
-  font-weight:bold;
+    font-weight:bold;
+
+    border-left-color:#ff3027;
 }
 
 
-/* TV PIÙ BASSE */
+/* =====================================
+   TV BASSE
+===================================== */
 
 @media(max-height:720px){
 
-  .left{
-    top:14vh;
-  }
+    .left{
+        top:13.5vh;
+    }
 
-  .avatar-zone{
-    top:9vh;
-    height:74vh;
-  }
-
-  .title{
-    font-size:2.3vw;
-  }
-
-  #countdown{
-    font-size:6.7vw;
-  }
+    .avatar-zone{
+        top:8vh;
+        height:76vh;
+    }
 
 }
 
 </style>
+
 </head>
+
 
 
 <body>
 
-<div
-  class="page"
-  id="page"
->
+<div class="page" id="page">
 
 
-  <div class="logo">
+    <!-- LOGO -->
 
-    <div class="logo-linea">
-      LINEA
-    </div>
+    <div class="logo">
 
-    <div class="logo-sub">
-      MURANO ART
-    </div>
+        <div class="logo-linea">
+            LINEA
+        </div>
 
-  </div>
-
-
-
-  <section class="left">
-
-
-    <div class="live-pill">
-
-      <div class="live-dot"></div>
-
-      <div class="live-text">
-        LIVE
-      </div>
+        <div class="logo-sub">
+            MURANO ART
+        </div>
 
     </div>
 
 
 
-    <div class="title">
+    <!-- SINISTRA -->
 
-      LIVE GLASS-BLOWING
-      <br>
-
-      DEMONSTRATION
-
-    </div>
+    <section class="left">
 
 
+        <div class="live-pill">
 
-    <div class="every-row">
+            <div class="live-dot"></div>
 
-      <div class="blue-line"></div>
+            <div class="live-text">
+                LIVE
+            </div>
 
-      <div class="every">
-        EVERY 15 MINUTES
-      </div>
-
-      <div class="red-line"></div>
-
-    </div>
+        </div>
 
 
 
-    <div class="timer-panel">
+        <div class="title">
 
-      <div id="countdown">
-        15:00
-      </div>
+            LIVE GLASS-BLOWING<br>
+            DEMONSTRATION
 
-    </div>
-
-
-
-    <div class="next">
-
-      NEXT DEMONSTRATION
-
-    </div>
-
-    <div class="next-line"></div>
-
-    <div class="next-dot"></div>
+        </div>
 
 
 
-    <div id="message">
+        <div class="every-row">
 
-      Discover the art of Murano glass,
-      <br>
+            <div class="blue-line"></div>
 
-      live in our furnace.
+            <div class="every">
+                EVERY 15 MINUTES
+            </div>
 
-    </div>
+            <div class="red-line"></div>
 
-
-  </section>
-
-
-
-  <aside class="avatar-zone">
-
-
-    <div id="player"></div>
-
-
-    <!-- COPERTURA SOTTOTITOLI -->
-    <div class="caption-mask"></div>
-
-
-    <div id="startOverlay">
-
-      <div class="start-button">
-
-        ● &nbsp;
-        START LIVE EXPERIENCE
-
-      </div>
-
-      <div class="start-small">
-
-        TAP ONCE TO ENABLE AUDIO
-
-      </div>
-
-    </div>
-
-
-  </aside>
+        </div>
 
 
 
-  <footer class="footer">
+        <!-- COUNTDOWN DIGITALE -->
 
-    THE ART OF MURANO GLASS •
+        <div class="timer-panel">
 
-    <span class="footer-live">
-      LIVE
-    </span>
 
-  </footer>
+            <div class="digital-display">
+
+
+                <div class="digit" id="digit1"></div>
+
+
+                <div class="digit" id="digit2"></div>
+
+
+                <div class="colon">
+
+                    <div class="colon-dot"></div>
+
+                    <div class="colon-dot"></div>
+
+                </div>
+
+
+                <div class="digit" id="digit3"></div>
+
+
+                <div class="digit" id="digit4"></div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="next">
+
+            NEXT DEMONSTRATION
+
+        </div>
+
+
+        <div class="next-line"></div>
+
+
+        <div class="next-dot"></div>
+
+
+
+        <div id="message">
+
+            Discover the art of Murano glass,<br>
+            live in our furnace.
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- VIDEO -->
+
+    <aside class="avatar-zone">
+
+
+        <div class="video-crop">
+
+            <div id="player"></div>
+
+        </div>
+
+
+        <!-- MASCHERA SOTTOTITOLI -->
+
+        <div class="subtitle-mask"></div>
+
+
+
+        <!-- SOLO SE AUTOPLAY VIENE BLOCCATO -->
+
+        <div id="startOverlay">
+
+            <div class="start-button">
+
+                ● &nbsp; START LIVE EXPERIENCE
+
+            </div>
+
+            <div class="start-small">
+
+                TAP ONCE TO START
+
+            </div>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        THE ART OF MURANO GLASS •
+
+        <span class="footer-live">
+            LIVE
+        </span>
+
+    </footer>
 
 
 </div>
 
 
 
-<script
-src="https://www.youtube.com/iframe_api">
-</script>
+<script src="https://www.youtube.com/iframe_api"></script>
 
 
 <script>
 
-/* YOUTUBE */
 
-let player;
-
-
-function onYouTubeIframeAPIReady(){
-
-  player =
-    new YT.Player(
-      "player",
-      {
-
-        videoId:
-          "fnaTZhE2lyo",
-
-        playerVars:{
-
-          autoplay:0,
-
-          controls:0,
-
-          rel:0,
-
-          playsinline:1,
-
-          disablekb:1,
-
-          fs:0,
-
-          loop:1,
-
-          playlist:
-            "fnaTZhE2lyo",
-
-          iv_load_policy:3
-
-        },
+/* =====================================
+   CREA SEGMENTI DIGITALI
+===================================== */
 
 
-        events:{
+const segments =
+[
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g"
+];
 
-          onStateChange:
-          function(event){
+
+const digitMap =
+{
+
+    0:["a","b","c","d","e","f"],
+
+    1:["b","c"],
+
+    2:["a","b","g","e","d"],
+
+    3:["a","b","c","d","g"],
+
+    4:["f","g","b","c"],
+
+    5:["a","f","g","c","d"],
+
+    6:["a","f","g","e","c","d"],
+
+    7:["a","b","c"],
+
+    8:["a","b","c","d","e","f","g"],
+
+    9:["a","b","c","d","f","g"]
+
+};
+
+
+function buildDigit(element){
+
+    segments.forEach(
+        function(name){
+
+            const segment =
+                document.createElement("span");
+
+            segment.className =
+                "segment seg-" + name;
+
+            segment.dataset.segment =
+                name;
+
+            element.appendChild(segment);
+
+        }
+    );
+
+}
+
+
+const digitElements =
+[
+    document.getElementById("digit1"),
+    document.getElementById("digit2"),
+    document.getElementById("digit3"),
+    document.getElementById("digit4")
+];
+
+
+digitElements.forEach(buildDigit);
+
+
+
+function setDigit(element,value){
+
+    const active =
+        digitMap[value] || [];
+
+
+    element
+    .querySelectorAll(".segment")
+    .forEach(
+
+        function(segment){
 
             if(
-              event.data ===
-              YT.PlayerState.ENDED
+                active.includes(
+                    segment.dataset.segment
+                )
             ){
 
-              player.seekTo(0);
-
-              player.playVideo();
+                segment
+                .classList
+                .add("on");
 
             }
 
-          }
+            else{
+
+                segment
+                .classList
+                .remove("on");
+
+            }
 
         }
 
-      }
     );
 
 }
 
 
 
-/* START */
-
-document
-.getElementById(
-  "startOverlay"
-)
-.addEventListener(
-  "click",
-  function(){
-
-    if(player){
-
-      player.unMute();
-
-      player.setVolume(100);
-
-      player.playVideo();
+/* =====================================
+   YOUTUBE
+===================================== */
 
 
-      document
-      .getElementById(
-        "startOverlay"
-      )
-      .classList
-      .add("hidden");
+let player;
+
+
+function onYouTubeIframeAPIReady(){
+
+
+    player =
+        new YT.Player(
+        "player",
+        {
+
+            videoId:
+                "fnaTZhE2lyo",
+
+
+            playerVars:
+            {
+
+                autoplay:1,
+
+                controls:0,
+
+                rel:0,
+
+                playsinline:1,
+
+                disablekb:1,
+
+                fs:0,
+
+                loop:1,
+
+                playlist:
+                    "fnaTZhE2lyo",
+
+                iv_load_policy:3
+
+            },
+
+
+            events:
+            {
+
+                onReady:
+                    attemptAutoStart,
+
+
+                onStateChange:
+                    playerStateChanged
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/*
+  PROVA AUTOPLAY CON AUDIO.
+
+  Se il browser lo consente,
+  non compare nessun pulsante.
+
+  Se il browser lo blocca,
+  dopo poco compare START.
+*/
+
+function attemptAutoStart(event){
+
+
+    try{
+
+        event.target.setVolume(100);
+
+        event.target.unMute();
+
+        event.target.playVideo();
 
     }
 
-  }
+    catch(e){}
+
+
+
+    setTimeout(
+
+        function(){
+
+            try{
+
+                if(
+                    player.getPlayerState()
+                    !==
+                    YT.PlayerState.PLAYING
+                ){
+
+                    document
+                    .getElementById(
+                        "startOverlay"
+                    )
+                    .classList
+                    .add("show");
+
+                }
+
+            }
+
+            catch(e){
+
+                document
+                .getElementById(
+                    "startOverlay"
+                )
+                .classList
+                .add("show");
+
+            }
+
+        },
+
+        1600
+
+    );
+
+}
+
+
+
+function playerStateChanged(event){
+
+
+    if(
+        event.data ===
+        YT.PlayerState.PLAYING
+    ){
+
+        document
+        .getElementById(
+            "startOverlay"
+        )
+        .classList
+        .remove("show");
+
+    }
+
+
+    if(
+        event.data ===
+        YT.PlayerState.ENDED
+    ){
+
+        player.seekTo(0);
+
+        player.playVideo();
+
+    }
+
+}
+
+
+
+/* FALLBACK MANUALE */
+
+document
+.getElementById("startOverlay")
+.addEventListener(
+
+    "click",
+
+    function(){
+
+
+        player.unMute();
+
+        player.setVolume(100);
+
+        player.playVideo();
+
+
+        this
+        .classList
+        .remove("show");
+
+
+    }
+
 );
 
 
 
-/* COUNTDOWN */
+/* =====================================
+   COUNTDOWN
+===================================== */
+
 
 (function(){
 
 
-  const page =
-    document.getElementById(
-      "page"
+    const page =
+        document.getElementById(
+            "page"
+        );
+
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+
+    function updateCountdown(){
+
+
+        const now =
+            new Date();
+
+
+        const minutes =
+            now.getMinutes();
+
+
+        const seconds =
+            now.getSeconds();
+
+
+        const milliseconds =
+            now.getMilliseconds();
+
+
+
+        let nextMinute;
+
+
+
+        if(minutes < 15){
+
+            nextMinute = 15;
+
+        }
+
+        else if(minutes < 30){
+
+            nextMinute = 30;
+
+        }
+
+        else if(minutes < 45){
+
+            nextMinute = 45;
+
+        }
+
+        else{
+
+            nextMinute = 60;
+
+        }
+
+
+
+        let remaining =
+
+            ((nextMinute - minutes) * 60)
+
+            - seconds
+
+            - (milliseconds / 1000);
+
+
+
+        remaining =
+            Math.ceil(remaining);
+
+
+
+        if(remaining <= 0){
+
+            remaining = 900;
+
+        }
+
+
+
+        const mins =
+            Math.floor(
+                remaining / 60
+            );
+
+
+        const secs =
+            remaining % 60;
+
+
+
+        const text =
+
+            String(mins)
+            .padStart(2,"0")
+
+            +
+
+            String(secs)
+            .padStart(2,"0");
+
+
+
+        setDigit(
+            digitElements[0],
+            Number(text[0])
+        );
+
+
+        setDigit(
+            digitElements[1],
+            Number(text[1])
+        );
+
+
+        setDigit(
+            digitElements[2],
+            Number(text[2])
+        );
+
+
+        setDigit(
+            digitElements[3],
+            Number(text[3])
+        );
+
+
+
+        if(remaining <= 30){
+
+
+            page
+            .classList
+            .add("starting");
+
+
+            message.innerHTML =
+
+                "THE DEMONSTRATION IS ABOUT TO BEGIN"
+
+                +
+
+                "<br>"
+
+                +
+
+                "ACCESS TO THE FURNACE IS NOW PERMITTED";
+
+
+        }
+
+
+        else{
+
+
+            page
+            .classList
+            .remove("starting");
+
+
+            message.innerHTML =
+
+                "Discover the art of Murano glass,"
+
+                +
+
+                "<br>"
+
+                +
+
+                "live in our furnace.";
+
+
+        }
+
+
+    }
+
+
+
+    updateCountdown();
+
+
+    setInterval(
+        updateCountdown,
+        250
     );
-
-
-  const countdown =
-    document.getElementById(
-      "countdown"
-    );
-
-
-  const message =
-    document.getElementById(
-      "message"
-    );
-
-
-
-  function
-  updateCountdown(){
-
-
-    const now =
-      new Date();
-
-
-    const minutes =
-      now.getMinutes();
-
-
-    const seconds =
-      now.getSeconds();
-
-
-    const milliseconds =
-      now.getMilliseconds();
-
-
-
-    let nextMinute;
-
-
-
-    if(minutes < 15){
-
-      nextMinute = 15;
-
-    }
-
-    else if(minutes < 30){
-
-      nextMinute = 30;
-
-    }
-
-    else if(minutes < 45){
-
-      nextMinute = 45;
-
-    }
-
-    else{
-
-      nextMinute = 60;
-
-    }
-
-
-
-    let remaining =
-
-      ((nextMinute - minutes) * 60)
-
-      - seconds
-
-      - (milliseconds / 1000);
-
-
-
-    remaining =
-      Math.ceil(
-        remaining
-      );
-
-
-
-    if(
-      remaining <= 0
-    ){
-
-      remaining = 900;
-
-    }
-
-
-
-    const mins =
-
-      Math.floor(
-        remaining / 60
-      );
-
-
-    const secs =
-
-      remaining % 60;
-
-
-
-    /*
-      COLON ROSSO
-    */
-
-    countdown.innerHTML =
-
-      String(mins)
-      .padStart(
-        2,
-        "0"
-      )
-
-      +
-
-      '<span style="' +
-      'color:#ff2118;' +
-      '-webkit-text-fill-color:#ff2118;' +
-      'text-shadow:0 0 10px rgba(255,33,24,.65);' +
-      '">:</span>'
-
-      +
-
-      String(secs)
-      .padStart(
-        2,
-        "0"
-      );
-
-
-
-    if(
-      remaining <= 30
-    ){
-
-
-      page
-      .classList
-      .add(
-        "starting"
-      );
-
-
-      message.innerHTML =
-
-        "THE DEMONSTRATION IS ABOUT TO BEGIN"
-
-        +
-
-        "<br>"
-
-        +
-
-        "ACCESS TO THE FURNACE IS NOW PERMITTED";
-
-
-    }
-
-
-    else{
-
-
-      page
-      .classList
-      .remove(
-        "starting"
-      );
-
-
-      message.innerHTML =
-
-        "Discover the art of Murano glass,"
-
-        +
-
-        "<br>"
-
-        +
-
-        "live in our furnace.";
-
-
-    }
-
-
-  }
-
-
-
-  updateCountdown();
-
-
-  setInterval(
-    updateCountdown,
-    250
-  );
 
 
 })();
+
 
 </script>
 
