@@ -28,8 +28,8 @@ body{
 }
 
 .page{
-    width:1920px;
-    height:1080px;
+    width:100vw;
+    height:100vh;
     position:relative;
     overflow:hidden;
 
@@ -57,13 +57,13 @@ body{
 
 .logo{
     position:absolute;
-    left:59.52px;
-    top:34.56px;
+    left:3.1vw;
+    top:3.2vh;
     z-index:10;
 }
 
 .logo-linea{
-    font-size:50.88px;
+    font-size:2.65vw;
     line-height:.9;
     font-weight:300;
     letter-spacing:.45vw;
@@ -98,10 +98,10 @@ body{
 
 .left{
     position:absolute;
-    left:57.6px;
-    top:172.8px;
+    left:3vw;
+    top:16vh;
 
-    width:748.8px;
+    width:39vw;
 }
 
 
@@ -114,13 +114,13 @@ body{
     display:inline-flex;
     align-items:center;
 
-    gap:22.08px;
+    gap:1.15vw;
 
     padding:
-        14.58px
-        40.32px
-        14.58px
-        25.92px;
+        1.35vh
+        2.1vw
+        1.35vh
+        1.35vw;
 
     border-radius:999px;
 
@@ -144,8 +144,8 @@ body{
 
 .live-dot{
 
-    width:46.08px;
-    height:46.08px;
+    width:2.4vw;
+    height:2.4vw;
 
     min-width:22px;
     min-height:22px;
@@ -182,7 +182,7 @@ body{
 
 .live-text{
 
-    font-size:53.76px;
+    font-size:2.8vw;
     font-weight:600;
 
     letter-spacing:.10vw;
@@ -207,9 +207,9 @@ body{
 
 .title{
 
-    margin-top:34.56px;
+    margin-top:3.2vh;
 
-    font-size:58.56px;
+    font-size:3.05vw;
     line-height:1.08;
 
     font-weight:600;
@@ -232,18 +232,18 @@ body{
 
 .every-row{
 
-    margin-top:24.84px;
+    margin-top:2.3vh;
 
     display:flex;
     align-items:center;
 
-    gap:23.04px;
+    gap:1.2vw;
 }
 
 
 .blue-line{
 
-    width:124.8px;
+    width:6.5vw;
     height:2px;
 
     background:
@@ -261,7 +261,7 @@ body{
 
 .red-line{
 
-    width:124.8px;
+    width:6.5vw;
     height:2px;
 
     background:
@@ -281,7 +281,7 @@ body{
 
     white-space:nowrap;
 
-    font-size:21.12px;
+    font-size:1.1vw;
 
     letter-spacing:.35vw;
 
@@ -297,10 +297,10 @@ body{
 
     position:relative;
 
-    margin-top:24.84px;
+    margin-top:2.3vh;
 
-    width:710.4px;
-    height:205.2px;
+    width:37vw;
+    height:19vh;
 
     min-height:150px;
 
@@ -390,10 +390,10 @@ body{
 
     position:relative;
 
-    width:99.84px;
-    height:197.76px;
+    width:5.2vw;
+    height:10.3vw;
 
-    max-height:162px;
+    max-height:15vh;
 
     min-width:48px;
     min-height:92px;
@@ -599,8 +599,8 @@ body{
 
 .colon{
 
-    width:40.32px;
-    height:153.6px;
+    width:2.1vw;
+    height:8vw;
 
     min-width:20px;
 
@@ -611,14 +611,14 @@ body{
     justify-content:center;
     align-items:center;
 
-    gap:26.88px;
+    gap:1.4vw;
 }
 
 
 .colon-dot{
 
-    width:20.16px;
-    height:20.16px;
+    width:1.05vw;
+    height:1.05vw;
 
     min-width:10px;
     min-height:10px;
@@ -639,11 +639,11 @@ body{
 
 .next{
 
-    margin-top:21.6px;
+    margin-top:2vh;
 
     text-align:center;
 
-    font-size:19.584px;
+    font-size:1.02vw;
 
     letter-spacing:.34vw;
 
@@ -653,7 +653,7 @@ body{
 
 .next-line{
 
-    width:576px;
+    width:30vw;
     max-width:90%;
 
     height:1px;
@@ -693,15 +693,15 @@ body{
 
 #message{
 
-    margin-top:22.68px;
+    margin-top:2.1vh;
 
-    padding-left:24.96px;
+    padding-left:1.3vw;
 
     border-left:
         2px solid
         #ff3027;
 
-    font-size:22.656px;
+    font-size:1.18vw;
 
     line-height:1.45;
 
@@ -717,11 +717,11 @@ body{
 
     position:absolute;
 
-    right:53.76px;
-    top:102.6px;
+    right:2.8vw;
+    top:9.5vh;
 
-    width:998.4px;
-    height:799.2px;
+    width:52vw;
+    height:74vh;
 
     border-radius:24px;
 
@@ -783,10 +783,14 @@ body{
     position:absolute;
 
     left:50%;
-    top:29%;
+    top:50%;
 
-    width:128%;
-    height:158%;
+    /* Player kept in a true 16:9 box.
+       VIDAA handles this more reliably than
+       independent width/height stretching. */
+    width:100%;
+    aspect-ratio:16 / 9;
+    height:auto;
 
     transform:
         translate(-50%,-50%);
@@ -874,8 +878,8 @@ body{
     border-radius:999px;
 
     padding:
-        11.88px
-        32.64px;
+        1.1vh
+        1.7vw;
 
     background:
         linear-gradient(
@@ -886,7 +890,7 @@ body{
 
     color:#fff;
 
-    font-size:20.16px;
+    font-size:1.05vw;
 
     font-weight:bold;
 
@@ -900,7 +904,7 @@ body{
 
 .start-small{
 
-    margin-top:12.96px;
+    margin-top:1.2vh;
 
     font-size:.72vw;
 
@@ -918,16 +922,16 @@ body{
 
     position:absolute;
 
-    left:57.6px;
-    right:57.6px;
+    left:3vw;
+    right:3vw;
 
-    bottom:28.08px;
+    bottom:2.6vh;
 
     border-top:
         1px solid
         #343434;
 
-    padding-top:21.6px;
+    padding-top:2vh;
 
     text-align:center;
 
@@ -972,12 +976,12 @@ body{
 @media(max-height:720px){
 
     .left{
-        top:145.8px;
+        top:13.5vh;
     }
 
     .avatar-zone{
-        top:86.4px;
-        height:820.8px;
+        top:8vh;
+        height:76vh;
     }
 
 }
@@ -1698,31 +1702,6 @@ document
 
 </script>
 
-
-
-<script>
-(function(){
-    function fitStage(){
-        var stage = document.getElementById("page");
-        if(!stage) return;
-
-        var scale = Math.min(
-            window.innerWidth / 1920,
-            window.innerHeight / 1080
-        );
-
-        var x = (window.innerWidth - 1920 * scale) / 2;
-        var y = (window.innerHeight - 1080 * scale) / 2;
-
-        stage.style.transformOrigin = "top left";
-        stage.style.transform =
-            "translate(" + x + "px," + y + "px) scale(" + scale + ")";
-    }
-
-    fitStage();
-    window.addEventListener("resize", fitStage);
-})();
-</script>
 
 </body>
 </html>
