@@ -780,6 +780,10 @@ body{
 
 #player{
 
+    /* PIP-style overlay:
+       YouTube is positioned directly over the graphic frame,
+       without crop, zoom or transforms. */
+
     position:absolute;
 
     left:0;
@@ -789,6 +793,8 @@ body{
     height:100% !important;
 
     border:0;
+
+    z-index:10;
 }
 
 
