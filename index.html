@@ -782,18 +782,11 @@ body{
 
     position:absolute;
 
-    left:50%;
-    top:50%;
+    left:0;
+    top:0;
 
-    /* Player kept in a true 16:9 box.
-       VIDAA handles this more reliably than
-       independent width/height stretching. */
-    width:100%;
-    aspect-ratio:16 / 9;
-    height:auto;
-
-    transform:
-        translate(-50%,-50%);
+    width:100% !important;
+    height:100% !important;
 
     border:0;
 }
@@ -1312,6 +1305,12 @@ function onYouTubeIframeAPIReady(){
         new YT.Player(
         "player",
         {
+
+            width:
+                "100%",
+
+            height:
+                "100%",
 
             videoId:
                 "fmKCddzoTkY",
