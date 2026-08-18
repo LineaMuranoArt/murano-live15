@@ -786,11 +786,11 @@ body{
 
     position:absolute;
 
-    left:-3%;
-    top:-3%;
+    left:-7.5%;
+    top:-7.5%;
 
-    width:106% !important;
-    height:106% !important;
+    width:115% !important;
+    height:115% !important;
 
     border:0;
 
@@ -1306,7 +1306,8 @@ let player;
 
 /* =====================================
    AUDIO ANNOUNCEMENTS
-   Avatar volume ducks but video never stops
+   Same trigger logic as working timer15.
+   The avatar keeps playing; only its volume ducks.
 ===================================== */
 
 const audio10 = new Audio("10%20Minuti.wav");
@@ -1315,72 +1316,61 @@ const audio1 = new Audio("1%20Minuti.wav");
 const audioStart = new Audio("Starting.wav");
 const chime = new Audio("chime.wav");
 
-[audio10, audio5, audio1, audioStart, chime].forEach(function(a){
-    a.preload = "auto";
+[audio10, audio5, audio1, audioStart, chime].forEach(function(audio){
+    audio.preload = "auto";
 });
 
-const firedAnnouncements = new Set();
+let lastAnnouncementKey = "";
 
-function announcementKey(now,label){
-    return [
-        now.getFullYear(),
-        now.getMonth()+1,
-        now.getDate(),
-        now.getHours(),
-        now.getMinutes(),
-        label
-    ].join("-");
+function announcementKey(now, name){
+    return (
+        now.getFullYear() + "-" +
+        (now.getMonth() + 1) + "-" +
+        now.getDate() + "-" +
+        now.getHours() + "-" +
+        now.getMinutes() + "-" +
+        name
+    );
 }
 
-function duckAvatarVolume(){
+function setAvatarVolume(value){
     try{
         if(player && typeof player.setVolume === "function"){
-            player.setVolume(12);
+            player.setVolume(value);
         }
     }catch(e){}
 }
 
-function restoreAvatarVolume(){
-    try{
-        if(player && typeof player.setVolume === "function"){
-            player.setVolume(100);
-        }
-    }catch(e){}
-}
+function playAudioOnce(key, audio){
 
-function playAnnouncementOnce(key, voiceAudio){
-
-    if(firedAnnouncements.has(key)){
+    if(lastAnnouncementKey === key){
         return;
     }
 
-    firedAnnouncements.add(key);
+    lastAnnouncementKey = key;
+    setAvatarVolume(12);
 
-    duckAvatarVolume();
-
-    chime.pause();
     chime.currentTime = 0;
 
     const playVoice = function(){
 
         setTimeout(function(){
 
-            voiceAudio.pause();
-            voiceAudio.currentTime = 0;
+            audio.currentTime = 0;
 
-            const restore = function(){
-                restoreAvatarVolume();
-                voiceAudio.removeEventListener("ended", restore);
+            const restoreVolume = function(){
+                setAvatarVolume(100);
+                audio.removeEventListener("ended", restoreVolume);
             };
 
-            voiceAudio.addEventListener("ended", restore);
+            audio.addEventListener("ended", restoreVolume);
 
-            voiceAudio.play().catch(function(error){
-                console.log("Voice announcement blocked:", error);
-                restoreAvatarVolume();
+            audio.play().catch(function(error){
+                console.log("Audio playback blocked:", error);
+                restoreVolume();
             });
 
-        }, 350);
+        }, 450);
     };
 
     chime.onended = playVoice;
@@ -1627,10 +1617,7 @@ document
             now.getMilliseconds();
 
 
-        /* =====================================
-           ANNUNCI AUDIO SINCRONIZZATI
-           Il video continua: si abbassa solo la voce avatar
-        ===================================== */
+        /* AUDIO ANNOUNCEMENTS — TIMER 15 CLOCK */
 
         const isTenMinutesBefore =
             minutes === 5 ||
@@ -1657,29 +1644,29 @@ document
             minutes === 45;
 
         if(isTenMinutesBefore && seconds <= 1){
-            playAnnouncementOnce(
-                announcementKey(now,"10"),
+            playAudioOnce(
+                announcementKey(now, "10"),
                 audio10
             );
         }
 
         if(isFiveMinutesBefore && seconds <= 1){
-            playAnnouncementOnce(
-                announcementKey(now,"5"),
+            playAudioOnce(
+                announcementKey(now, "5"),
                 audio5
             );
         }
 
         if(isOneMinuteBefore && seconds <= 1){
-            playAnnouncementOnce(
-                announcementKey(now,"1"),
+            playAudioOnce(
+                announcementKey(now, "1"),
                 audio1
             );
         }
 
         if(isDemoMinute && seconds <= 1){
-            playAnnouncementOnce(
-                announcementKey(now,"start"),
+            playAudioOnce(
+                announcementKey(now, "start"),
                 audioStart
             );
         }
