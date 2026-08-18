@@ -1301,7 +1301,95 @@ function setDigit(element,value){
 ===================================== */
 
 
+
 let player;
+
+/* =====================================
+   AUDIO ANNOUNCEMENTS
+   Avatar volume ducks but video never stops
+===================================== */
+
+const audio10 = new Audio("10%20Minuti.wav");
+const audio5 = new Audio("5%20Minuti.wav");
+const audio1 = new Audio("1%20Minuti.wav");
+const audioStart = new Audio("Starting.wav");
+const chime = new Audio("chime.wav");
+
+[audio10, audio5, audio1, audioStart, chime].forEach(function(a){
+    a.preload = "auto";
+});
+
+const firedAnnouncements = new Set();
+
+function announcementKey(now,label){
+    return [
+        now.getFullYear(),
+        now.getMonth()+1,
+        now.getDate(),
+        now.getHours(),
+        now.getMinutes(),
+        label
+    ].join("-");
+}
+
+function duckAvatarVolume(){
+    try{
+        if(player && typeof player.setVolume === "function"){
+            player.setVolume(12);
+        }
+    }catch(e){}
+}
+
+function restoreAvatarVolume(){
+    try{
+        if(player && typeof player.setVolume === "function"){
+            player.setVolume(100);
+        }
+    }catch(e){}
+}
+
+function playAnnouncementOnce(key, voiceAudio){
+
+    if(firedAnnouncements.has(key)){
+        return;
+    }
+
+    firedAnnouncements.add(key);
+
+    duckAvatarVolume();
+
+    chime.pause();
+    chime.currentTime = 0;
+
+    const playVoice = function(){
+
+        setTimeout(function(){
+
+            voiceAudio.pause();
+            voiceAudio.currentTime = 0;
+
+            const restore = function(){
+                restoreAvatarVolume();
+                voiceAudio.removeEventListener("ended", restore);
+            };
+
+            voiceAudio.addEventListener("ended", restore);
+
+            voiceAudio.play().catch(function(error){
+                console.log("Voice announcement blocked:", error);
+                restoreAvatarVolume();
+            });
+
+        }, 350);
+    };
+
+    chime.onended = playVoice;
+
+    chime.play().catch(function(error){
+        console.log("Chime blocked:", error);
+        playVoice();
+    });
+}
 
 
 function onYouTubeIframeAPIReady(){
@@ -1538,6 +1626,63 @@ document
         const milliseconds =
             now.getMilliseconds();
 
+
+        /* =====================================
+           ANNUNCI AUDIO SINCRONIZZATI
+           Il video continua: si abbassa solo la voce avatar
+        ===================================== */
+
+        const isTenMinutesBefore =
+            minutes === 5 ||
+            minutes === 20 ||
+            minutes === 35 ||
+            minutes === 50;
+
+        const isFiveMinutesBefore =
+            minutes === 10 ||
+            minutes === 25 ||
+            minutes === 40 ||
+            minutes === 55;
+
+        const isOneMinuteBefore =
+            minutes === 14 ||
+            minutes === 29 ||
+            minutes === 44 ||
+            minutes === 59;
+
+        const isDemoMinute =
+            minutes === 0 ||
+            minutes === 15 ||
+            minutes === 30 ||
+            minutes === 45;
+
+        if(isTenMinutesBefore && seconds <= 1){
+            playAnnouncementOnce(
+                announcementKey(now,"10"),
+                audio10
+            );
+        }
+
+        if(isFiveMinutesBefore && seconds <= 1){
+            playAnnouncementOnce(
+                announcementKey(now,"5"),
+                audio5
+            );
+        }
+
+        if(isOneMinuteBefore && seconds <= 1){
+            playAnnouncementOnce(
+                announcementKey(now,"1"),
+                audio1
+            );
+        }
+
+        if(isDemoMinute && seconds <= 1){
+            playAnnouncementOnce(
+                announcementKey(now,"start"),
+                audioStart
+            );
+        }
 
 
         let nextMinute;
