@@ -1172,6 +1172,46 @@ body{
 
 
 
+<script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-database-compat.js"></script>
+
+<script>
+/* =====================================
+   SHARED CLOCK — FIREBASE SERVER TIME
+   Keeps TV and Control Staff preview aligned
+===================================== */
+
+const firebaseConfigClock = {
+    apiKey: "AIzaSyBbIg0TWEdSs3hid2xaP7tBkrytqcIGDM0",
+    authDomain: "linea-murano-display.firebaseapp.com",
+    databaseURL: "https://linea-murano-display-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "linea-murano-display",
+    storageBucket: "linea-murano-display.firebasestorage.app",
+    messagingSenderId: "1056543125469",
+    appId: "1:1056543125469:web:464ec5e1c93f53f5fb1034"
+};
+
+if(!firebase.apps.length){
+    firebase.initializeApp(firebaseConfigClock);
+}
+
+let sharedClockOffset = 0;
+
+firebase.database()
+.ref(".info/serverTimeOffset")
+.on("value", function(snapshot){
+    const value = snapshot.val();
+
+    if(typeof value === "number"){
+        sharedClockOffset = value;
+    }
+});
+
+function sharedNow(){
+    return new Date(Date.now() + sharedClockOffset);
+}
+</script>
+
 <script src="https://www.youtube.com/iframe_api"></script>
 
 
@@ -1524,7 +1564,7 @@ document
 
 
         const now =
-            new Date();
+            sharedNow();
 
 
         const minutes =
